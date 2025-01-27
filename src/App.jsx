@@ -1,15 +1,13 @@
 
-
 import './App.css'
+import Body from './components/Body'
 
 function App() {
 
-
   return (
-    <>
-      <h1 className="bg-red-500 text-4xl">Hello</h1>
-    </>
+    <Body/>
   )
+
 }
 
 export default App
