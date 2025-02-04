@@ -9,7 +9,6 @@ import { addUser } from "../utils/userSlice";
 
 
 function Login() {
-  const navigate=useNavigate()
   const dispatch =useDispatch()
   const [iSignInForm, setIsSignIned] = useState(true);
   const[errorMessage,setErrorMessage]=useState(null);
@@ -34,7 +33,6 @@ function Login() {
         const user = userCredential.user;
         console.log("LogIn Successfully")
         console.log(user);
-        navigate('/browse')
         
         // ...
       })
@@ -56,7 +54,6 @@ function Login() {
     }).then(() => {
        const {uid,email,displayName,photoURL} = auth.currentUser;
        dispatch(addUser({uid:uid,email:email,displayName:displayName,photoURL:photoURL}))
-       navigate('/browse')
     }).catch((error) => {
       setErrorMessage(error.message)
     });

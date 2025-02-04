@@ -21,6 +21,12 @@ Currently, two official plugins are available:
 -firebase setup
 -deploy our app to production
 -Create Signup user account
+-Implement sign in user api
+-created redux store with userSlice
+-implemented sign out
+-update profile
+-Bugfix:redirect to browse if not siggned in 
+
 "react-router-dom": "^6.28.2",
 
 
