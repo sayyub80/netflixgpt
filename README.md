@@ -10,7 +10,18 @@ Currently, two official plugins are available:
 
 
 # Netflix
-
+-Create vite app
+-configured tailwind
+-Header
+-Routing the app
+-Login form
+-Sign up form 
+-form validation
+-useRef hook
+-firebase setup
+-deploy our app to production
+-Create Signup user account
+"react-router-dom": "^6.28.2",
 
 
 # Features 
