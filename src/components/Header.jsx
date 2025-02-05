@@ -7,6 +7,7 @@ import {onAuthStateChanged} from "firebase/auth"
 import { useEffect} from 'react'
 import {useDispatch} from 'react-redux'
 import { addUser, removeUser } from "../utils/userSlice"
+import { logoURL } from '../utils/constants';
 
 
 function Header() {
@@ -16,7 +17,7 @@ function Header() {
 
 
   useEffect(()=>{
-    onAuthStateChanged(auth, (user) => {
+   const unsubscribe= onAuthStateChanged(auth, (user) => {
        //whenever user sign in or sign up this is called and add user to our store 
       if (user) {
         const {uid,email,displayName,photoURL} = user;
@@ -34,6 +35,8 @@ function Header() {
         navigate('/')
       }
     });
+    // Unsubscribe when component unmount
+    return ()=>unsubscribe();
   },[])
 
   const handleSignOut = () => {
@@ -49,12 +52,12 @@ function Header() {
      <div className="absolute flex justify-between top-0 w-full px-8 py-2 bg-gradient-to-b from-black z-10">
          <img
         className="w-44"
-        src="https://help.nflxext.com/helpcenter/OneTrust/oneTrust_production/consent/87b6a5c0-0104-4e96-a291-092c11350111/01938dc4-59b3-7bbc-b635-c4131030e85f/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png"
+        src={logoURL}
         alt="logo"
       />
      {user && <div className='flex items-center'>
-         <img className='w-8 rounded-full mr-2' alt='img' src={user?.photoURL}></img>
-         <button onClick={handleSignOut} className='font-bold cursor-pointer text-white'>SignOut</button>
+         <img className='w-7  mr-2' alt='img' src={user?.photoURL}></img>
+         <button onClick={handleSignOut} className='font-bold text-sm cursor-pointer text-white'>SignOut</button>
       </div>}
      </div>
   );

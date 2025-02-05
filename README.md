@@ -26,6 +26,15 @@ Currently, two official plugins are available:
 -implemented sign out
 -update profile
 -Bugfix:redirect to browse if not siggned in 
+-add hardcoded values to constant file
+-registered for TMDB and fetch the api
+-custom hook for now playing movies
+-create movieSlice
+-update store with movies data
+-Planning for maincontainer and secondaryContainer
+-fetch trailor video
+-updated the store with trailor data
+-Embedded the youtube video
 
 "react-router-dom": "^6.28.2",
 

@@ -3,9 +3,9 @@ import Header from "./Header";
 import { useState, useRef } from "react";
 import {  signInWithEmailAndPassword,createUserWithEmailAndPassword,updateProfile } from "firebase/auth";
 import { auth } from "../utils/firebase";
-import { useNavigate } from "react-router-dom";
 import {useDispatch} from 'react-redux'
 import { addUser } from "../utils/userSlice";
+import { avatarLogo } from "../utils/constants";
 
 
 function Login() {
@@ -50,7 +50,7 @@ function Login() {
     const user = userCredential.user; 
     updateProfile(user, {
       displayName: name.current.value,
-      photoURL: "https://www.bing.com/th?id=OIP.A9q7aADqLP1yfT-x9uNX1gAAAA&w=150&h=150&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2"
+      photoURL: avatarLogo
     }).then(() => {
        const {uid,email,displayName,photoURL} = auth.currentUser;
        dispatch(addUser({uid:uid,email:email,displayName:displayName,photoURL:photoURL}))
