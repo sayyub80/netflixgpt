@@ -7,13 +7,17 @@ import {onAuthStateChanged} from "firebase/auth"
 import { useEffect} from 'react'
 import {useDispatch} from 'react-redux'
 import { addUser, removeUser } from "../utils/userSlice"
-import { logoURL } from '../utils/constants';
+import { logoURL, SUPPORTED_LANG } from '../utils/constants';
+import { toggleGptSearchView } from '../utils/gptSlice';
+import { changeLanguage } from '../utils/configSlice';
+
 
 
 function Header() {
   const dispatch=useDispatch();
   const navigate = useNavigate();
   const user = useSelector((state) => state.user); // Access user state from Redux
+  const showGptSearch=useSelector((store)=>store.gpt?.showGptSearch)
 
 
   useEffect(()=>{
@@ -46,17 +50,36 @@ function Header() {
     }).catch((error) => {
       console.error("Sign out error", error);
     });
-  };
+  };6
+  //gpt click
+  const handleGptSearchClick = () => {
+     dispatch(toggleGptSearchView())
+  }
+  //language change
+  const handleLanguageChange = (e) => {
+    dispatch(changeLanguage(e.target.value))
+  }
 
+  
   return (
-     <div className="absolute flex justify-between top-0 w-full px-8 pt-4 bg-gradient-to-b from-black z-10">
+     <div className="absolute flex justify-between top-0 w-full px-8 pt-4 bg-gradient-to-b from-black z-30">
          <img
         className="w-44"
         src={logoURL}
         alt="logo"
       />
-     {user && <div className='flex items-center'>
-         <img className='w-7  mr-2' alt='img' src={user?.photoURL}></img>
+     {user && <div className='flex items-center '>
+         {showGptSearch && (<select onChange={handleLanguageChange} className='p-2 bg-gray-900 text-white mx-3'>
+          {SUPPORTED_LANG.map((lang)=>(
+            <option className='md-2 ' value={lang.identifier} key={lang.identifier}>{lang.name}</option>
+          ))}
+         </select>)}
+         <button 
+          onClick={handleGptSearchClick} 
+          className='py-2 px-4 cursor-pointer mr-5 rounded-sm  bg-purple-400'>
+           {showGptSearch?"Home":"Gpt Search"} 
+         </button>
+         <img className='w-9  mr-2' alt='img' src={user?.photoURL}></img>
          <button onClick={handleSignOut} className='font-bold text-sm cursor-pointer text-white'>SignOut</button>
       </div>}
      </div>
