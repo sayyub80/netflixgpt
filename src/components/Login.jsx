@@ -85,8 +85,12 @@ function Login() {
         <button onClick={handleFromSubmit} type="submit" className="py-2 my-4 cursor-pointer bg-red-700">{iSignInForm ? "Sign In" : "Sign Up"}</button>
 
         {iSignInForm && <p className="text-blue-500 cursor-pointer text-center mb-5">Forgot Password?</p>}
-
-        <p onClick={() => { setIsSignIned(!iSignInForm); }} className="cursor-pointer">{iSignInForm ? "New to Netflix? Sign Up Now" : "Already a member? Sign In"}</p>
+        
+        <div className='flex gap-2'> 
+        <p className=' ' >{iSignInForm ?"New to Netflix? " : "Already a member?"}</p>
+        <button className="  cursor-pointer" onClick={() => { setIsSignIned(!iSignInForm) }}>{iSignInForm?"Sign Up Now":"Sign In"}</button>
+        </div>
+       
       </form>
     </div>
     </>

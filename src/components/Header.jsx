@@ -62,7 +62,7 @@ function Header() {
 
   
   return (
-     <div className="absolute flex justify-between top-0 w-full px-8 pt-4 bg-gradient-to-b from-black z-30">
+     <div className="absolute flex justify-between top-0 w-full px-8 pt-2 bg-gradient-to-b from-black z-30">
          <img
         className="w-44"
         src={logoURL}

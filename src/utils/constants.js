@@ -4,19 +4,13 @@ export const avatarLogo="https://avatars.githubusercontent.com/u/6759280?v=4"
 
 
 
-export const TMDB_API_ACCESS= "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1NjA4NDA0YzBkZWIzYjNjNjUyMmFjOGMwMzkzZGYyYSIsIm5iZiI6MTczODY3NDI5NS40NTgsInN1YiI6IjY3YTIxMDc3ZWVhODlhZGYwOTAyZmI0ZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.TTbCXYOzx-xUjfoRuMmv92MB2mS9nbDVYWAMPaCrFw0"
-
-
-export const TMDB_API="5608404c0deb3b3c6522ac8c0393df2a"
-
-
 export const NOW_PLAYING_URL = 'https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1'
 
 export const API_OPTIONS = {
     method: 'GET',
     headers: {
       accept: 'application/json',
-      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1NjA4NDA0YzBkZWIzYjNjNjUyMmFjOGMwMzkzZGYyYSIsIm5iZiI6MTczODY3NDI5NS40NTgsInN1YiI6IjY3YTIxMDc3ZWVhODlhZGYwOTAyZmI0ZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.TTbCXYOzx-xUjfoRuMmv92MB2mS9nbDVYWAMPaCrFw0'
+      Authorization: 'Bearer '+import.meta.env.VITE_TMDB_KEY
     }
   };
 
@@ -31,3 +25,7 @@ export const SUPPORTED_LANG=[
   {identifier:'spanish',name:'Spanish'},
   {identifier:'french',name:'French'},
 ]
+
+
+
+export const GEMINI_API_KEY=import.meta.env.VITE_GEMINI_API_KEY 
