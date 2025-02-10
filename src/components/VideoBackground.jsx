@@ -8,7 +8,7 @@ const VideoBackground = ( {movieId}) => {
   useMovieTrailor(movieId)
 
   return (
-    <div className="w-screen -mt-5 overflow-hidden">
+    <div className="w-scre  md:-mt-5 overflow-hidden">
       <iframe
         className="w-[100vw] aspect-video"
         src={"https://www.youtube.com/embed/"+trailorVideo?.key+"?autoplay=1&loop=1&mute=1&autohide=1"}

@@ -76,7 +76,7 @@ function Login() {
       <div className="bg-black w-full h-screen absolute opacity-40"></div> 
      <div className=" w-screen h-screen login flex justify-center items-center">
       <Header />
-      <form onClick={(e) => e.preventDefault()} className="flex flex-col justify-center w-[400px] text-white h-[60vh] absolute px-12 py-0 bg-black opacity-80 ">
+      <form onClick={(e) => e.preventDefault()} className="flex flex-col justify-center md:w-[400px] text-white h-[60vh] absolute px-12 py-0 bg-black opacity-80 ">
         <h1 className="font-medium text-2xl mb-4 pl-2">{iSignInForm ? "Sign In" : "Sign Up"}</h1>
         {!iSignInForm && <input ref={name} className="py-2 my-2 border-2 px-4 bg-white text-black w-full font-medium" placeholder="User Name" />}
         <input ref={email} type="email" placeholder="Email" className="py-2 my-2 border-2 px-4 bg-white text-black w-full font-medium" />

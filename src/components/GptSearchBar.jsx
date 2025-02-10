@@ -18,7 +18,7 @@ function GptSearchBar() {
     }
     //gpt serach
         const handleGptSearchButton= async()=>{
-          //Make an api call to Gemini api and get movies rsults
+          //Make an api call to Gemini api and get movies results
           const prompt="Act as a Movie Recommendation system and suggest some movies for the query"+searchText.current.value+". Only give me names of 5 best suitable movies,comma seperated like the example result given aheak.Example Results:Gadar,Sholay,Don,Golmal,Koi Mil gaya"
         
           const result = await model.generateContent([prompt]);
@@ -31,17 +31,13 @@ function GptSearchBar() {
         };
     
   return (<>
-  <div className='relative z-10 pt-[10%] flex justify-center'>
-        <form onSubmit={(e)=>e.preventDefault()} className='p-4 bg-black grid grid-cols-12 w-[45%]'>
+  <div className=' relative z-10 pt-[40%] md:pt-[10%] flex justify-center'>
+        <form onSubmit={(e)=>e.preventDefault()} className='p-4 bg-black grid grid-cols-12 w-[95%] md:w-[45%]'>
             <input ref={searchText} type="text" className='px-6   col-span-9 bg-white' placeholder={lang[langKey].searchPlaceholder}/>
             <button onClick={handleGptSearchButton} className='py-2  cursor-pointer ml-4 bg-red-600 col-span-3 text-white rounded-lg' type="submit">{lang[langKey].search}</button>
         </form>
         
     </div>
-    <div className='fixed h-screen w-full top-0 -z-30'>
-    <img alt='bg'src='https://assets.nflxext.com/ffe/siteui/vlv3/7a8c0067-a424-4e04-85f8-9e25a49a86ed/web/IN-en-20250120-TRIFECTA-perspective_860a95da-c386-446e-af83-fef8ddd80803_large.jpg'>
-    </img>
-</div>
 
   </>
     

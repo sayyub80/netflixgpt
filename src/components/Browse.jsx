@@ -20,7 +20,7 @@ function Browse() {
       <Header/> 
       {showGptSearch?<GptSearch/>:<>  <MainContainer/>
       <SecondaryContainer/></>}
-    
+      
     
     </div>
   )
