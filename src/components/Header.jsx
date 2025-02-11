@@ -62,11 +62,12 @@ function Header() {
   return (
      <div className="absolute flex flex-col md:flex-row justify-between top-0 w-full px-8 pt-2 bg-gradient-to-b from-black z-30">
          <div className='flex items-center'>
-         <a href='/browse'><img
+         <img
+        
         className="w-30 md:w-44 m-auto md:m-0"
         src={logoURL}
         alt="logo"
-        /></a>
+        />
         <FiAlignRight onClick={handleToggle} className='text-white text-xl md:hidden'/>
          </div>
          {user && (
@@ -80,7 +81,7 @@ function Header() {
              )}
              <button 
               onClick={handleGptSearchClick} 
-              className='md:block py-2 px-4 cursor-pointer mr-5 rounded-sm bg-purple-400'>
+              className='md:block py-2 px-4 cursor-pointer mr-5 rounded-sm bg-white'>
                {showGptSearch ? "Home" : "Gpt Search"} 
              </button>
              <img className='w-9 mr-2' alt='img' src={user?.photoURL}></img>

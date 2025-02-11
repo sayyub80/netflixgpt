@@ -1,5 +1,4 @@
 import Browse from "./Browse"
-import Demo from "./demo"
 import Login from "./Login"
 import {createBrowserRouter} from "react-router-dom"
 import {RouterProvider} from "react-router-dom"
@@ -17,10 +16,7 @@ function Body() {
             path: "/browse",
             element: <Browse/>
          },
-         {
-            path: "/demo",
-            element: <Demo/>
-         }
+        
          
     ])
     //onAuthChange
