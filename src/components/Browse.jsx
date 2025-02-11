@@ -14,6 +14,7 @@ function Browse() {
    useTopRatedMovies()
    useUpcomingMovies()
    
+   
   return (
     <div>
      

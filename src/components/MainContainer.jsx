@@ -4,10 +4,13 @@ import VideoTitle from "./VideoTitle"
 
 function MainContainer() {
   const movies= useSelector((store) => store.movies?.nowPlayingMovies)
-  if(!movies) return
+  if(!movies) return (<div className='flex justify-center items-center w-screen h-screen'> <p>To see the content of this site :Go to Settings- Privacy and Security- security-Select dns to Cloadflare(1.1.1.1)</p></div>
+   
+  )
 
   const mainMovie=movies[0]
   const {title,overview,id}=mainMovie;
+  
   
   return (
     <div > 
