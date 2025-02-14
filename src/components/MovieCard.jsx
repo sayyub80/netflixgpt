@@ -4,7 +4,7 @@ import { IMG_CDN_URL } from '../utils/constants'
 function MovieCard({posterPath}) {
   if(!posterPath) return null;
   return (
-    <div className='w-26 md:w-54 pr-4 cursor-pointer'>
+    <div className='w-27 md:w-54 pr-4 cursor-pointer'>
       
        <img alt='img' src={IMG_CDN_URL+posterPath}></img>
 

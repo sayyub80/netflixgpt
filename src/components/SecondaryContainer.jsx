@@ -11,9 +11,9 @@ function SecondaryContainer() {
  
     
   return (
-    <div className='bg-black w-[98.9vw]  pt-42 md:pt-0  pb-20'>
+    <div className='bg-black w-[98.9vw]  pt-42  md:pt-[1%]  pb-20'>
        {/* MovieList-Popular */}
-       <div className='-mt-40 relative '>
+       <div className='lg:-mt-[7rem] -mt-48  relative md:mt-0 sm:-mt-[11rem]'>
         <MovieList movies={nowmovies} title="Now Playing"/>
        <MovieList movies={topRatedMovies} title="Top Rated"/>
        <MovieList movies={popularMovies} title="Popular"/>

@@ -48,6 +48,8 @@ function Header() {
 
   const handleGptSearchClick = () => {
      dispatch(toggleGptSearchView())
+     setMenu(false)
+
   }
 
   const handleLanguageChange = (e) => {
@@ -60,18 +62,18 @@ function Header() {
   }
 
   return (
-     <div className="absolute flex flex-col md:flex-row justify-between top-0 w-full px-8 pt-2 bg-gradient-to-b from-black z-30">
-         <div className='flex items-center'>
+     <div className="absolute flex flex-col md:flex-row justify-between top-0 w-full px-8 pt-0 md:pt-2 bg-gradient-to-b from-black z-30">
+         <div className='flex items-center relative left-2 md:left-0 '>
          <img
         
         className="w-30 md:w-44 m-auto md:m-0"
         src={logoURL}
         alt="logo"
         />
-        <FiAlignRight onClick={handleToggle} className='text-white text-xl md:hidden'/>
+        {user &&<FiAlignRight onClick={handleToggle} className='text-white text-xl md:hidden'/>}
          </div>
          {user && (
-           <div className={`${!menu ? "hidden md:flex" : "flex"} gap-2 md:gap-0 py-2 md:py-0 bg-black md:bg-transparent w-[98vw] md:w-auto -ml-7 md:ml-0 md:flex-row flex items-center justify-center `}>
+           <div className='hidden md:flex  bg-transparent   items-center justify-center '>
              {showGptSearch && (
                <select onChange={handleLanguageChange} className='p-2 bg-gray-900 text-white mx-3'>
                  {SUPPORTED_LANG.map((lang) => (
@@ -81,12 +83,31 @@ function Header() {
              )}
              <button 
               onClick={handleGptSearchClick} 
-              className='md:block py-2 px-4 cursor-pointer mr-5 rounded-sm bg-white'>
+              className=' py-2 px-4 cursor-pointer mr-5 rounded-sm bg-white'>
                {showGptSearch ? "Home" : "Gpt Search"} 
              </button>
              <img className='w-9 mr-2' alt='img' src={user?.photoURL}></img>
              <button onClick={handleSignOut} className='font-bold text-sm cursor-pointer text-white'>SignOut</button>
            </div>
+         )}
+
+{user && (
+           menu && <div className='flex  md:hidden fixed w-screen left-0 top-11  bg-black   z-40 flex-col items-center pt-4 h-[40vh] gap-7 '>
+           {showGptSearch && (
+             <select onChange={handleLanguageChange} className='p-2 cursor-pointer bg-gray-900 text-white mx-3'>
+               {SUPPORTED_LANG.map((lang) => (
+                 <option className='md-2' value={lang.identifier} key={lang.identifier}>{lang.name}</option>
+               ))}
+             </select>
+           )}
+           <button 
+            onClick={handleGptSearchClick} 
+            className='py-2 cursor-pointer px-3 text-sm rounded-[2px] bg-white'>
+             {showGptSearch ? "Home" : "Gpt Search"} 
+           </button>
+           <img className='w-9 mr-2' alt='img' src={user?.photoURL}></img>
+           <button onClick={handleSignOut} className='font-bold text-sm cursor-pointer text-white'>SignOut</button>
+         </div>
          )}
      </div>
   );
